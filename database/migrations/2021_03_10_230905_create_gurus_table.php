@@ -16,16 +16,18 @@ class CreateGurusTable extends Migration
         Schema::create('gurus', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nip');
+            $table->string('nuptk');
             $table->string('alamat');
             $table->string('nomer');
+            $table->string('email');
             $table->string('lulusan');
             $table->string('mapel');
             $table->string('kelas');
             $table->string('jurusan');
             $table->string('status');
-            $table->string('foto');
-            $table->string('berkas');
+            $table->string('foto')->nullable();
+            $table->string('sertifikat_pendidikan')->nullable();
+            $table->string('izasah')->nullable();
             $table->timestamps();
         });
     }

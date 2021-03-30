@@ -7,7 +7,9 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{csrf_token()}}"> 
     <link rel="icon" href="favicon.ico">
-    <title>Tiny Dashboard - A Bootstrap Dashboard Template</title>
+    <title>{{env('APP_NAME')}}</title>
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{{url('assets/login/images/avatar-01.png')}}" type="image/x-icon" />
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{url('assets/dashboard/css/simplebar.css')}}">
     <!-- Fonts CSS -->
@@ -29,7 +31,9 @@
 </head>
 <body class="vertical  dark">
     <div class="wrapper">
+
     @yield('main')
+    
     </div>
     <script src="{{url('assets/dashboard/js/jquery.min.js')}}"></script>
     <script src="{{url('assets/dashboard/js/popper.min.js')}}"></script>
@@ -66,6 +70,7 @@
     <script src="{{url('assets/dashboard/js/add.js')}}"></script>
     <script src="{{url('assets/dashboard/js/search.js')}}"></script>
     <script src="{{url('assets/dashboard/js/kota.js')}}"></script>
+    <script src="{{url('assets/dashboard/js/profile.js')}}"></script>
     <script>
         $('.select2').select2(
         {

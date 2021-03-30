@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         DB::table('users')->insert([
-            'name'  => 'Filla Setyana Junior',
+            'name'      => 'Filla Setyana Junior',
             'username'  => 'Fillaputri217',
-            'password' => Hash::make('Fillaputri217'),
+            'password'  => Hash::make('Fillaputri217'),
             'password1' => Crypt::encrypt('Fillaputri217'),
-            'role' => '4',
+            'role'      => '4',
         ]);
         DB::table('siswas')->insert([
             'nama'                  => 'paijo',
@@ -47,17 +47,16 @@ class DatabaseSeeder extends Seeder
             'jurusan'               => 1,
         ]);
         DB::table('gurus')->insert([
-            'nama'  => 'bambang',
-            'nip'  => '1234234',
-            'alamat' => 'wawawd/awdada/awdad/awdad/waeea/11/122/1232/123123',
-            'nomer' => 2345435345,
-            'lulusan' => '2345435345',
-            'mapel' => 'matematika',
-            'kelas' => '12',
-            'jurusan' => 'ipa',
-            'status' => '1',
-            'foto' => '1',
-            'berkas' => '1',
+            'nama'      => 'Filla Setyana Junior',
+            'nuptk'     => '1234234',
+            'alamat'    => 'wawawd/awdada/awdad/awdad/waeea/11/122/1232/123123',
+            'nomer'     => 2345435345,
+            'email'     => 'aasasd@asda.com',
+            'lulusan'   => '2345435345',
+            'mapel'     => 'matematika',
+            'kelas'     => '12',
+            'jurusan'   => 'ipa',
+            'status'    => '1',
         ]);
         $this->call([
             MenuSeeder::class,

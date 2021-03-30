@@ -1,25 +1,29 @@
 <nav class="topnav navbar navbar-light">
     <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
-    <i class="fe fe-menu navbar-toggler-icon"></i>
+        <i class="fe fe-menu navbar-toggler-icon"></i>
     </button>
     <ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="dark">
-        <i class="fe fe-sun fe-16"></i>
-        </a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="avatar avatar-sm mt-2">
-            <img src="./assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
-        </span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="#">Profile</a>
-        <a class="dropdown-item" href="#">Settings</a>
-        <a class="dropdown-item" href="#">Activities</a>
-        </div>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="dark">
+            <i class="fe fe-sun fe-16"></i>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="avatar avatar-sm mt-2">
+                @if ($avatar->foto == null)
+                    
+                @else
+                <img src="{{asset('profile/' . $avatar->foto)}}" alt="..." class="avatar-img rounded-circle">
+                @endif
+            </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Activities</a>
+            </div>
+        </li>
     </ul>
 </nav>
 <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
@@ -32,9 +36,9 @@
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
             <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
                 <g>
-                <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
-                <polygon class="st0" points="96,69 33,69 42,51 105,51 	" />
-                <polygon class="st0" points="78,33 15,33 24,15 87,15 	" />
+                <polygon class="st0" points="78,105 15,105 24,87 87,87" />
+                <polygon class="st0" points="96,69 33,69 42,51 105,51" />
+                <polygon class="st0" points="78,33 15,33 24,15 87,15" />
                 </g>
             </svg>
             </a>
