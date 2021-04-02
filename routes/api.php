@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AbsenController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CodeqrController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,18 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::post('login',[AuthController::class,'login']);
+
 Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function () {
     // manggil controller sesuai bawaan laravel 8
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('qrkode',[AbsenController::class, 'CreateCode']);
-    Route::put('qrkode',[AbsenController::class,'UpdateCode']);
+
+    Route::get('materi', [CodeqrController::class,'Materi']);
+    Route::post('materi', [CodeqrController::class, 'Inputmateri']);
+
+    Route::post('qrkode',[CodeqrController::class, 'CreateCode']);
+    Route::put('qrkode',[CodeqrController::class,'UpdateCode']);
+    Route::delete('qrkode',[CodeqrController::class,'DeleteCode']);
+    Route::delete('absen/{absen}',[AbsenController::class,'DeleteAbsen']);
+
+    Route::post('absen',[AbsenController::class,'Absen']);
 });

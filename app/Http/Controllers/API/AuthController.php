@@ -33,14 +33,9 @@ class AuthController extends Controller
 
             $tokenResult = $user->createToken('token-auth')->plainTextToken;
             $respon = [
-                'status' => 'success',
-                'msg' => 'Login successfully',
-                'errors' => null,
-                'content' => [
-                    'status_code' => 200,
-                    'access_token' => $tokenResult,
-                    'token_type' => 'Bearer',
-                ]
+                'status_code' => 200,
+                'access_token' => $tokenResult,
+                'token_type' => 'Bearer',
             ];
             return response()->json($respon, 200);
         }

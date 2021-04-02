@@ -21,6 +21,8 @@ class NilaiImport implements ToModel
             'angka'    => $row[2],
             'huruf'    => $row[3],
             'mapel'    => $row[4],
+            'tahun'    => $row[5],
+            'semester' => $row[6],
             'guru'     => $guru->id,
         ]);
     }

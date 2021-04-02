@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNilaisTable extends Migration
+class CreateInputmaterikelasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateNilaisTable extends Migration
      */
     public function up()
     {
-        Schema::create('nilais', function (Blueprint $table) {
+        Schema::create('inputmaterikelas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('mapel');
-            $table->integer('angka');
-            $table->char('huruf', 1);
-            $table->integer('guru');
-            $table->string('tahun');
-            $table->int('semester');
+            $table->string('judul');
+            $table->string('pembahasan');
+            $table->string('deskripsi');
+            $table->string('kelas');
+            $table->string('guru');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateNilaisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nilais');
+        Schema::dropIfExists('inputmaterikelas');
     }
 }

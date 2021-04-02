@@ -48,7 +48,7 @@
                                                         ->join('gurus','gurus.id','=','jadwal12s.guru')
                                                         ->join('tahuns','tahuns.id','=','jadwal12s.tahun')
                                                         ->join('jurusans','jurusans.id','=','jadwal12s.jurusan')
-                                                        ->select('nama','matapelajaran','tahun','jurusan')
+                                                        ->select('nama','matapelajarans.matapelajaran','tahuns.tahun','jurusans.jurusan')
                                                         ->where('jadwal12s.id','=',$jadwal->id)
                                                         ->get();
                                         @endphp

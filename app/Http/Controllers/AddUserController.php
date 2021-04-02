@@ -27,7 +27,7 @@ class AddUserController extends Controller
             if ($no->role == 3) {
                 $no = User::orderBy('username', 'DESC')->where('role', 3)->first();
             }
-            $nama = substr($no->username, 7, 4);
+            $nama = substr($no->username, 5, 4);
             $tambah = (int) $nama + 1;
             $thn = date('y');
             $jurusan = Siswa::where('nama',$request->name)->first();
@@ -38,7 +38,7 @@ class AddUserController extends Controller
             }elseif(strlen($tambah) == 3){
                 $username = $thn . $jurusan->jurusan . "0" . $tambah;
             }else{
-                $username = $thn . $jurusan->jurusan . "" . $tambah;
+                $username = $thn . $jurusan->jurusan . $tambah;
             }
     
             $int = '1234567890';
