@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller as Controller;
+use App\Models\Guru;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
@@ -33,12 +34,30 @@ class AuthController extends Controller
 
             $tokenResult = $user->createToken('token-auth')->plainTextToken;
             $respon = [
-                'status_code' => 200,
-                'access_token' => $tokenResult,
-                'token_type' => 'Bearer',
+                // 'status' => 'success',
+                // 'msg' => 'Login successfully',
+                // 'errors' => null,
+                // 'content' => [
+                    'status_code' => 200,
+                    'access_token' => $tokenResult,
+                    'token_type' => 'Bearer',
+                // ]
             ];
             return response()->json($respon, 200);
         }
+    }
+    public function DetailGuru()
+    {
+        $data = Guru::where('nama', request()->user()->name)->first();
+
+        $response = [
+            'nama'              => $data->nama,
+            'nip'               => request()->user()->username,
+            'mapel'             => $data->mapel,
+            'kelas_mengajar'    => $data->kelas_mengajar,
+        ];
+
+        return response()->json($response, 200);
     }
 
     public function logout()
@@ -46,5 +65,9 @@ class AuthController extends Controller
         $user = request()->user(); //or Auth::user()
         // Revoke current user token
         $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
+        $respon = [
+            'status_code' => 200,
+        ];
+        return response()->json($respon, 200);
     }
 }

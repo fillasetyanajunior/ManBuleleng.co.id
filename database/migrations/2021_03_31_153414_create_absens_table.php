@@ -15,10 +15,14 @@ class CreateAbsensTable extends Migration
     {
         Schema::create('absens', function (Blueprint $table) {
             $table->id();
-            $table->string('nis');
+            $table->string('jam');
+            $table->string('tanggal');
             $table->string('nama');
+            $table->string('nis');
             $table->string('mapel');
-            $table->timestamps();
+            $table->string('kelas');
+            $table->string('tahun');
+            $table->string('guru');
         });
     }
 

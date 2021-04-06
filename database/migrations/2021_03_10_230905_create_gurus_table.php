@@ -24,6 +24,7 @@ class CreateGurusTable extends Migration
             $table->string('mapel');
             $table->string('kelas');
             $table->string('jurusan');
+            $table->string('kelas_mengajar');
             $table->string('status');
             $table->string('foto')->nullable();
             $table->string('sertifikat_pendidikan')->nullable();

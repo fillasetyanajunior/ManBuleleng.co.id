@@ -17,10 +17,9 @@ class CreateInputmaterikelasTable extends Migration
             $table->id();
             $table->string('judul');
             $table->string('pembahasan');
-            $table->string('deskripsi');
             $table->string('kelas');
+            $table->string('mapel');
             $table->string('guru');
-            $table->timestamps();
         });
     }
 

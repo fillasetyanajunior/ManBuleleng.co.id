@@ -47,16 +47,17 @@ class DatabaseSeeder extends Seeder
             'jurusan'               => 1,
         ]);
         DB::table('gurus')->insert([
-            'nama'      => 'Filla Setyana Junior',
-            'nuptk'     => '1234234',
-            'alamat'    => 'wawawd/awdada/awdad/awdad/waeea/11/122/1232/123123',
-            'nomer'     => 2345435345,
-            'email'     => 'aasasd@asda.com',
-            'lulusan'   => '2345435345',
-            'mapel'     => 'matematika',
-            'kelas'     => '12',
-            'jurusan'   => 'ipa',
-            'status'    => '1',
+            'nama'              => 'Filla Setyana Junior',
+            'nuptk'             => '1234234',
+            'alamat'            => 'wawawd/awdada/awdad/awdad/waeea/11/122/1232/123123',
+            'nomer'             => 2345435345,
+            'email'             => 'aasasd@asda.com',
+            'lulusan'           => '2345435345',
+            'mapel'             => 'matematika',
+            'kelas'             => '12',
+            'jurusan'           => 'ipa',
+            'kelas_mengajar'    => '12 ipa',
+            'status'            => '1',
         ]);
         $this->call([
             MenuSeeder::class,

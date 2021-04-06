@@ -9,29 +9,27 @@ use App\Models\KodeQr;
 
 class CodeqrController extends Controller
 {
-    public function Materi()
+    public function Materi(Request $request)
     {
-        $data = Inputmaterikelas::where('nama',request()->user()->name)->get();
+        $data = Inputmaterikelas::where('guru',request()->user()->name)
+                                ->where('mapel',$request->mapel)
+                                ->where('kelas',$request->kelas)
+                                ->get();
 
-        $response = [
-            'status'    => 'Success',
-            'data'      => $data,
-        ];
-
-        return response()->json($response, 200);
+        return response()->json($data, 200);
     }
     public function Inputmateri(Request $request)
     {
         Inputmaterikelas::create([
             'judul'         => $request->judul,
             'pembahasan'    => $request->pembahasan,
-            'deskripsi'     => $request->deskripsi,
             'kelas'         => $request->kelas,
+            'mapel'         => $request->mapel,
             'guru'          => request()->user()->name,
         ]);
 
         $response = [
-            'status' => 'Success',
+            'status_code' => 200,
         ];
 
         return response()->json($response, 200);
@@ -45,8 +43,7 @@ class CodeqrController extends Controller
         ]);
 
         $response = [
-            'qr' => $Qr->kode_qr,
-            'status' => 'Success',
+            'qr'        => $Qr->kode_qr,
         ];
 
         return response()->json($response, 200);
@@ -62,8 +59,7 @@ class CodeqrController extends Controller
         ]);
 
         $response = [
-            'qr' => $Qr->kode_qr,
-            'status' => 'Success',
+            'qr'        => $Qr->kode_qr,
         ];
 
         return response()->json($response, 200);
@@ -73,7 +69,7 @@ class CodeqrController extends Controller
         KodeQr::where('kode_qr', $request->qr)->delete();
 
         $response = [
-            'status' => 'Success',
+            'status' => 200
         ];
 
         return response()->json($response, 200);

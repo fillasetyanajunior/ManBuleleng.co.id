@@ -25,14 +25,17 @@ Route::post('login',[AuthController::class,'login']);
 Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function () {
     // manggil controller sesuai bawaan laravel 8
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('detail', [AuthController::class, 'DetailGuru']);
 
-    Route::get('materi', [CodeqrController::class,'Materi']);
-    Route::post('materi', [CodeqrController::class, 'Inputmateri']);
+    Route::post('materi/show', [CodeqrController::class,'Materi']);
+    Route::post('materi/store', [CodeqrController::class, 'Inputmateri']);
 
     Route::post('qrkode',[CodeqrController::class, 'CreateCode']);
     Route::put('qrkode',[CodeqrController::class,'UpdateCode']);
     Route::delete('qrkode',[CodeqrController::class,'DeleteCode']);
-    Route::delete('absen/{absen}',[AbsenController::class,'DeleteAbsen']);
 
-    Route::post('absen',[AbsenController::class,'Absen']);
+    Route::delete('absen/{absen}',[AbsenController::class,'DeleteAbsen']);
+    Route::post('absen/show',[AbsenController::class,'showAbsen']);
+    Route::post('absen',[AbsenController::class, 'AbsenMobile']);
+    Route::post('absen/desktop',[AbsenController::class, 'AbsenDekstop']);
 });

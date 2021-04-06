@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNilaisTable extends Migration
+class CreateDetailMapelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateNilaisTable extends Migration
      */
     public function up()
     {
-        Schema::create('nilais', function (Blueprint $table) {
+        Schema::create('detail_mapels', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('mapel');
-            $table->integer('angka');
-            $table->char('huruf', 1);
-            $table->integer('guru');
-            $table->string('tahun');
-            $table->integer('semester');
+            $table->integer('id_guru');
+            $table->integer('id_kelas');
+            $table->integer('id_jurusan');
+            $table->integer('id_mapel');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateNilaisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nilais');
+        Schema::dropIfExists('detail_mapels');
     }
 }
